@@ -18,10 +18,10 @@ defaults:
 jobs:
   pack:
     steps:
-      - uses: ./.github/workflows/reusable/deploy-infra
+      - uses: ./.github/workflows/reusable/deploy-infra.yml
         with:
           environment: ${{ inputs.environment }}
 
-      - uses: ./.github/workflows/reusable/deploy-code
+      - uses: ./.github/workflows/reusable/deploy-code.yml
         with:
           environment: ${{ inputs.environment }}
