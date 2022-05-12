@@ -22,7 +22,6 @@ defaults:
 jobs:
   publish:
     uses: ./.github/workflows/publish-code.yml
-    needs: prepare
 
   deploy_dev:
     uses: ./.github/workflows/deploy.yml
