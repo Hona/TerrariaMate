@@ -22,13 +22,13 @@ defaults:
 jobs:
   publish:
     steps:
-      - uses: ./.github/reusable/publish-code
+      - uses: ./.github/workflows/reusable/publish-code
 
   deploy_dev:
     environment:
       name: DEV
     steps:
-      - uses: ./.github/reusable/deploy
+      - uses: ./.github/workflows/reusable/deploy
         with:
           environment: "DEV"
 
