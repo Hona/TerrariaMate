@@ -31,20 +31,16 @@ jobs:
     needs: prepare
 
   deploy_dev:
-    needs: publish
-    runs-on: ubuntu-latest
-    environment:
-      name: DEV
     uses: ./.github/workflows/deploy.yml
     with:
       environment: "DEV"
+    needs: publish
 
   deploy_prod:
-    needs: deploy_dev
-    runs-on: ubuntu-latest
-    environment:
-      name: PROD
-      url: https://terrariamate.com
     uses: ./.github/workflows/deploy.yml
     with:
       environment: "PROD"
+    needs: deploy_dev
+    environment:
+      name: PROD
+      url: https://terrariamate.com
