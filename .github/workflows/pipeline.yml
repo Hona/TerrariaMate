@@ -37,8 +37,8 @@ jobs:
     environment:
       name: DEV
     uses: ./.github/workflows/reusable/deploy.yml
-      with:
-        environment: "DEV"
+    with:
+      environment: "DEV"
 
   deploy_prod:
     needs: deploy_dev
@@ -47,5 +47,5 @@ jobs:
       name: PROD
       url: https://terrariamate.com
     uses: ./.github/reusable/deploy.yml
-      with:
-        environment: "PROD"
+    with:
+      environment: "PROD"
