@@ -1,0 +1,28 @@
+# Workflow name
+name: Deploy Infrastructure
+
+# Controls when the workflow will run
+on:
+  # This is a reusable workflow
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  dev:
+    runs-on: ubuntu-latest
+    env:
+      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+    steps:
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ env.AZURE_CREDENTIALS }}
+      - name: Deploy Bicep
+        shell: pwsh
+        run: |
+          .\Azure\deploy.ps1 `
+            -Environment "${{ inputs.environment }}"

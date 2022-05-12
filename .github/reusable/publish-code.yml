@@ -1,0 +1,21 @@
+# Workflow name
+name: Publish Code
+
+# Controls when the workflow will run
+on:
+  # This is a reusable workflow
+  workflow_call:
+
+defaults:
+  run:
+    shell: pwsh
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  publish_dotnet:
+    steps:
+      - name: Publish CDN
+        uses: ./.github/reusable/pack-dotnet
+        with:
+          projectDir: "TerrariaMate.CDN"
+          outputZip: "./cdn.zip"

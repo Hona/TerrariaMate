@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{C4E01F5D-4F42-4645-8772-C761CB5213D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerrariaMate.Utilities.Jobs", "Utilities\TerrariaMate.Utilities.Jobs\TerrariaMate.Utilities.Jobs.csproj", "{4C83CFF7-C06D-4A02-B249-9935EF1D7DC5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wiki", "Wiki", "{AF93C0FB-E789-4609-94A4-B305F3A94209}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerrariaMate.Wiki.Core", "Wiki\TerrariaMate.Wiki.Core\TerrariaMate.Wiki.Core.csproj", "{B4E6173A-5F0B-456D-B1CD-643BBBFF3C02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerrariaMate.CDN", "TerrariaMate.CDN\TerrariaMate.CDN.csproj", "{947FB1B6-313B-4E4F-8977-639B4798CDB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4C83CFF7-C06D-4A02-B249-9935EF1D7DC5} = {C4E01F5D-4F42-4645-8772-C761CB5213D9}
+		{B4E6173A-5F0B-456D-B1CD-643BBBFF3C02} = {AF93C0FB-E789-4609-94A4-B305F3A94209}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C83CFF7-C06D-4A02-B249-9935EF1D7DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C83CFF7-C06D-4A02-B249-9935EF1D7DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C83CFF7-C06D-4A02-B249-9935EF1D7DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C83CFF7-C06D-4A02-B249-9935EF1D7DC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4E6173A-5F0B-456D-B1CD-643BBBFF3C02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4E6173A-5F0B-456D-B1CD-643BBBFF3C02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4E6173A-5F0B-456D-B1CD-643BBBFF3C02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4E6173A-5F0B-456D-B1CD-643BBBFF3C02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{947FB1B6-313B-4E4F-8977-639B4798CDB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{947FB1B6-313B-4E4F-8977-639B4798CDB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{947FB1B6-313B-4E4F-8977-639B4798CDB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{947FB1B6-313B-4E4F-8977-639B4798CDB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

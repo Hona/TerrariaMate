@@ -1,0 +1,27 @@
+# Workflow name
+name: Deploy
+
+# Controls when the workflow will run
+on:
+  # This is a reusable workflow
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+
+defaults:
+  run:
+    shell: pwsh
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  pack:
+    steps:
+      - uses: ./.github/reusable/deploy-infra
+        with:
+          environment: ${{ inputs.environment }}
+
+      - uses: ./.github/reusable/deploy-code
+        with:
+          environment: ${{ inputs.environment }}
