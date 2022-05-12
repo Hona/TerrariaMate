@@ -15,6 +15,9 @@ jobs:
   publish_dotnet:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Publish CDN
         uses: ./.github/workflows/pack-dotnet.yml
         with:
