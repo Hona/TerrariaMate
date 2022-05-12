@@ -25,6 +25,9 @@ jobs:
       name: ${{ inputs.environment }}
       url: ${{ inputs.environment.url }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - uses: ./.github/workflows/deploy-infra.yml
         with:
           environment: ${{ inputs.environment }}
