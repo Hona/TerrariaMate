@@ -13,27 +13,34 @@ runs:
   using: "composite"
   steps:
     - name: Setup .NET Core SDK
+      shell: pwsh
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: |
           6.0.x
 
     - name: NuGet Restore
+      shell: pwsh
       run: dotnet restore
 
     - name: Build
+      shell: pwsh
       run: dotnet build -c Release ${{ inputs.projectDir }} --no-restore
 
     - name: Test
+      shell: pwsh
       run: dotnet test ${{ inputs.projectDir }} --no-restore --verbosity normal
 
     - name: Publish
+      shell: pwsh
       run: dotnet publish --no-build --configuration Release ${{ inputs.projectDir }} --output ./publish
 
     - name: Compress Archive
+      shell: pwsh
       run: Compress-Archive -Path ./publish/* -DestinationPath ${{ inputs.outputZip }}
 
     - name: Upload Build Artifact
+      shell: pwsh
       if: github.event_name != 'pull_request'
       uses: actions/upload-artifact@v2
       with:
