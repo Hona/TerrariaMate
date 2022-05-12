@@ -41,6 +41,3 @@ jobs:
     with:
       environment: "PROD"
     needs: deploy_dev
-    environment:
-      name: PROD
-      url: https://terrariamate.com
