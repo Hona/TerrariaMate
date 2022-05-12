@@ -13,7 +13,6 @@ runs:
   using: "composite"
   steps:
     - name: Setup .NET Core SDK
-      shell: pwsh
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: |
@@ -40,7 +39,6 @@ runs:
       run: Compress-Archive -Path ./publish/* -DestinationPath ${{ inputs.outputZip }}
 
     - name: Upload Build Artifact
-      shell: pwsh
       if: github.event_name != 'pull_request'
       uses: actions/upload-artifact@v2
       with:
