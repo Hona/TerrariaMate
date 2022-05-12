@@ -20,33 +20,32 @@ defaults:
     shell: pwsh
 
 jobs:
-  publish:
+  prepare:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - uses: ./.github/workflows/reusable/publish-code.yml
+  publish:
+    needs: prepare
+    runs-on: ubuntu-latest
+    uses: ./.github/workflows/reusable/publish-code.yml
 
   deploy_dev:
     needs: publish
     runs-on: ubuntu-latest
     environment:
       name: DEV
-    steps:
-      - uses: ./.github/workflows/reusable/deploy.yml
-        with:
-          environment: "DEV"
+    uses: ./.github/workflows/reusable/deploy.yml
+      with:
+        environment: "DEV"
 
   deploy_prod:
-    needs: [publish, deploy_dev]
+    needs: deploy_dev
     runs-on: ubuntu-latest
     environment:
       name: PROD
       url: https://terrariamate.com
-    steps:
-      - uses: ./.github/reusable/deploy.yml
-        with:
-          environment: "PROD"
+    uses: ./.github/reusable/deploy.yml
+      with:
+        environment: "PROD"
