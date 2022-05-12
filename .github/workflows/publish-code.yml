@@ -15,7 +15,7 @@ jobs:
   publish_dotnet:
     steps:
       - name: Publish CDN
-        uses: ./.github/workflows/reusable/pack-dotnet.yml
+        uses: ./.github/workflows/pack-dotnet.yml
         with:
           projectDir: "TerrariaMate.CDN"
           outputZip: "./cdn.zip"

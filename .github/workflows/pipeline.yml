@@ -29,14 +29,14 @@ jobs:
   publish:
     needs: prepare
     runs-on: ubuntu-latest
-    uses: ./.github/workflows/reusable/publish-code.yml
+    uses: ./.github/workflows/publish-code.yml
 
   deploy_dev:
     needs: publish
     runs-on: ubuntu-latest
     environment:
       name: DEV
-    uses: ./.github/workflows/reusable/deploy.yml
+    uses: ./.github/workflows/deploy.yml
     with:
       environment: "DEV"
 
@@ -46,6 +46,6 @@ jobs:
     environment:
       name: PROD
       url: https://terrariamate.com
-    uses: ./.github/reusable/deploy.yml
+    uses: ./.github/workflows/deploy.yml
     with:
       environment: "PROD"
