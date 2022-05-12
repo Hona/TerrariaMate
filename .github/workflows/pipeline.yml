@@ -21,10 +21,13 @@ defaults:
 
 jobs:
   publish:
+    runs-on: ubuntu-latest
     steps:
       - uses: ./.github/workflows/reusable/publish-code
 
   deploy_dev:
+    needs: publish
+    runs-on: ubuntu-latest
     environment:
       name: DEV
     steps:
@@ -33,6 +36,8 @@ jobs:
           environment: "DEV"
 
   deploy_prod:
+    needs: [publish, deploy_dev]
+    runs-on: ubuntu-latest
     environment:
       name: PROD
       url: https://terrariamate.com
