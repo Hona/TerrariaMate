@@ -19,19 +19,17 @@ jobs:
     uses: ./.github/workflows/publish-code.yml
 
   deploy_dev:
-    env:
-      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
     uses: ./.github/workflows/deploy.yml
     with:
       environment: "DEV"
+    secrets:
       AZURE_CREDENTIALS: ${{ env.AZURE_CREDENTIALS }}
     needs: publish
 
   deploy_prod:
-    env:
-      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
     uses: ./.github/workflows/deploy.yml
     with:
       environment: "PROD"
+    secrets:
       AZURE_CREDENTIALS: ${{ env.AZURE_CREDENTIALS }}
     needs: deploy_dev
