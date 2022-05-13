@@ -36,9 +36,11 @@ jobs:
       - uses: ./.github/actions/deploy-infra
         with:
           environment: ${{ inputs.environment }}
-          AZURE_CREDENTIALS: ${{ env.AZURE_CREDENTIALS }}
+        secrets:
+          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
 
       - uses: ./.github/actions/deploy-code
         with:
           environment: ${{ inputs.environment }}
-          AZURE_CREDENTIALS: ${{ env.AZURE_CREDENTIALS }}
+        secrets:
+          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
