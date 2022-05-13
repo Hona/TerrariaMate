@@ -1,0 +1,23 @@
+# Workflow name
+name: Deploy Infrastructure
+
+inputs:
+  environment:
+    required: true
+    type: string
+  AZURE_CREDENTIALS:
+    required: true
+    type: string
+
+runs:
+  using: "composite"
+  steps:
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ inputs.AZURE_CREDENTIALS }}
+    - name: Deploy Bicep
+      shell: pwsh
+      run: |
+        .\Azure\deploy.ps1 `
+          -Environment "${{ inputs.environment }}"

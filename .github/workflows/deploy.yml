@@ -28,10 +28,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: ./.github/workflows/deploy-infra.yml
+      - uses: ./.github/actions/deploy-infra
         with:
           environment: ${{ inputs.environment }}
+          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - uses: ./.github/workflows/deploy-code.yml
+      - uses: ./.github/actions/deploy-code
         with:
           environment: ${{ inputs.environment }}
+          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}

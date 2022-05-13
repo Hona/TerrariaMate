@@ -1,0 +1,28 @@
+# Workflow name
+name: Deploy Code
+
+inputs:
+  environment:
+    required: true
+    type: string
+  AZURE_CREDENTIALS:
+    required: true
+    type: string
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/download-artifact@v2
+
+    - uses: azure/login@v1
+      with:
+        creds: ${{ inputs.AZURE_CREDENTIALS }}
+        enable-AzPSSession: true
+
+    - name: Deploy CDN
+      working-directory: ./artifact
+      run: |
+        az webapp deployment source config-zip `
+          -n TerrariaMate-CDN `
+          --resource-group TerrariaMate-${{ inputs.environment }} `
+          --src $webAppZipPath
