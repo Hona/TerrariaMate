@@ -23,6 +23,6 @@ runs:
       working-directory: ./artifact
       run: |
         az webapp deployment source config-zip `
-          -n TerrariaMate-CDN `
+          -n TerrariaMate-CDN-${{ inputs.environment }} `
           --resource-group TerrariaMate-${{ inputs.environment }} `
           --src cdn.zip
