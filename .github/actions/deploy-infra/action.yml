@@ -19,8 +19,7 @@ runs:
 
     - name: Deploy Bicep
       shell: pwsh
+      working-directory: ./Azure
       run: |
-        cd Azure ;
         ./Deploy.ps1 `
-          -Environment "${{ inputs.environment }}" ; `
-        cd ..
+          -Environment "${{ inputs.environment }}"

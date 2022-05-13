@@ -17,9 +17,9 @@ runs:
     - uses: azure/login@v1
       with:
         creds: ${{ inputs.AZURE_CREDENTIALS }}
-        enable-AzPSSession: true
 
     - name: Deploy CDN
+      shell: pwsh
       working-directory: ./artifact
       run: |
         az webapp deployment source config-zip `
