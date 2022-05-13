@@ -30,12 +30,12 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     with:
       environment: "DEV"
-      AZURE_CREDENTIALS: ${{ env.AZURE_CREDENTIALS }}
+      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
     needs: publish
 
   deploy_prod:
     uses: ./.github/workflows/deploy.yml
     with:
       environment: "PROD"
-      AZURE_CREDENTIALS: ${{ env.AZURE_CREDENTIALS }}
+      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
     needs: deploy_dev
