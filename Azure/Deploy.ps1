@@ -12,14 +12,6 @@ param (
     $Location = "australiasoutheast"
 )
 
-# Verify we are logged in 'az login'
-az ad signed-in-user show
-
-if (!$?) {
-    Write-Host "Not logged into Azure, run 'az login' first..."
-    exit 1
-}
-
 Write-Host "Creating Parameters"
 $DeploymentTimestamp = Get-Date -Format "yyMMddHHmmss" -AsUTC
 $ResourceGroup = ("TerrariaMate-" + $Environment.ToUpper()) 
