@@ -12,6 +12,9 @@ on:
       environment_url:
         required: false
         type: string
+    secrets:
+      AZURE_CREDENTIALS:
+        required: true
 
 defaults:
   run:

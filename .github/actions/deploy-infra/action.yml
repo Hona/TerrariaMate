@@ -5,6 +5,8 @@ inputs:
   environment:
     required: true
     type: string
+
+secrets:
   AZURE_CREDENTIALS:
     required: true
     type: string
