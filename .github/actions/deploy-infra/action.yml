@@ -16,6 +16,7 @@ runs:
       uses: azure/login@v1
       with:
         creds: ${{ inputs.AZURE_CREDENTIALS }}
+
     - name: Deploy Bicep
       shell: pwsh
       run: |
