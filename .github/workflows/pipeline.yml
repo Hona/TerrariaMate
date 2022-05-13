@@ -14,15 +14,14 @@ defaults:
   run:
     shell: pwsh
 
-env:
-  AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
-
 jobs:
   publish:
     uses: ./.github/workflows/publish-code.yml
 
   deploy_dev:
     uses: ./.github/workflows/deploy.yml
+    env:
+      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
     with:
       environment: "DEV"
       AZURE_CREDENTIALS: ${{ env.AZURE_CREDENTIALS }}
@@ -30,6 +29,8 @@ jobs:
 
   deploy_prod:
     uses: ./.github/workflows/deploy.yml
+    env:
+      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
     with:
       environment: "PROD"
       AZURE_CREDENTIALS: ${{ env.AZURE_CREDENTIALS }}
