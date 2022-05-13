@@ -25,4 +25,4 @@ runs:
         az webapp deployment source config-zip `
           -n TerrariaMate-CDN `
           --resource-group TerrariaMate-${{ inputs.environment }} `
-          --src $webAppZipPath
+          --src cdn.zip
