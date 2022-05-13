@@ -39,7 +39,6 @@ runs:
       run: Compress-Archive -Path ./publish/* -DestinationPath ${{ inputs.outputZip }}
 
     - name: Upload Build Artifact
-      if: github.event_name != 'pull_request'
       uses: actions/upload-artifact@v2
       with:
         path: ${{ inputs.outputZip }}
